@@ -1,0 +1,26 @@
+SNOWFLAKE_DBT_T20:
+  target: "{{ env_var('DBT_TARGET', 'prod') }}"
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+      schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
+      threads: 4
+      client_session_keep_alive: False
+      
+    prod:
+      type: snowflake
+      account: ""
+      user: ""
+      password: ""
+      role: "{{ var('TARGET_ROLE','ACCOUNTADMIN') }}"
+      warehouse: "{{ var('TARGET_WH','COMPUTE_WH') }}"
+      database: "{{ var('TARGET_DB','IPL_PROD_DATABASE') }}" #Sample Existing Database or Production Database
+      schema: "{{ var('TARGET_SC','PUBLIC') }}" #Sample Existing Schema or production Schema
+      threads: 4
+      client_session_keep_alive: False
