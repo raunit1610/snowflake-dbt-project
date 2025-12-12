@@ -1,4 +1,4 @@
-SNOWFLAKE_DBT_T20:
+SNOWFLAKE_DBT_IPL:
   target: "{{ env_var('DBT_TARGET', 'prod') }}"
   outputs:
     dev:
