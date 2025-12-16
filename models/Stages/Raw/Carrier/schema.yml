@@ -1,0 +1,124 @@
+version: 2
+
+models:
+  - name: stg_raw_crr_seasons_details
+    description: ""
+    constraints:
+      - type: primary_key
+        columns: COMPETITION_ID
+    columns:
+      - name: COMPETITION_ID
+        data_type: number
+        description: ""
+        tests:
+          - unique
+
+      - name: COMPETITION_NAME
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: SEASON_ID
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
+        tests:
+          - unique
+
+      - name: SEASON
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: SEASON_NAME
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: COMPETITION_TYPE
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: COMPETITION_FORMAT
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: TEAM_TYPE
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: IS_LIVES
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: IS_FIXTURES
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: IS_COMPLETED
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: IS_STANDINGS
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: FILENAME
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: FEEDSOURCE
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: STATSFEED
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: TIMEZONE
+        data_type: timestamp_ntz
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: SOURCE_LOAD_TIMESTAMP
+        data_type: timestamp_ntz
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: _inserted_at_
+        data_type: timestamp_ntz
+        description: ""
+        constraints:
+          - type: not_null

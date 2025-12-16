@@ -1,0 +1,32 @@
+{{
+    config(
+        materialized='table',
+        tags = ["raw","carrier","raw_carrier"]
+    )
+}}
+
+with source as(
+    SELECT 
+        COMPETITIONID::INTEGER AS COMPETITION_ID
+        , DIVISIONNAME AS COMPETITION_NAME
+        , SEASONID::INTEGER AS SEASON_ID
+        , SEASONNAME::INTEGER AS SEASON
+        , COMPETITIONNAME AS SEASON_NAME
+        , STATSCODING AS COMPETITION_TYPE
+        , COMPETITIONTYPE AS COMPETITION_FORMAT
+        , TEAMTYPE AS TEAM_TYPE
+        , LIVES::INTEGER AS IS_LIVES
+        , FIXTURES::INTEGER AS IS_FIXTURES
+        , COMPLETED::INTEGER AS IS_COMPLETED
+        , CASE WHEN STANDINGS = 'No' THEN 0 ELSE 1 END AS IS_STANDINGS
+        , FILENAME
+        , FEEDSOURCE
+        , STATSFEED
+        , TIMEZONE
+        , CONVERT_TIMEZONE('UTC', 'Asia/Kolkata', LOAD_TIMESTAMP)::TIMESTAMP_NTZ AS SOURCE_LOAD_TIMESTAMP
+        , CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP())::TIMESTAMP_NTZ AS _inserted_at_
+    FROM {{ source('ipl_carrier_database','season') }}
+    ORDER BY SEASON_ID
+)
+
+SELECT * FROM source

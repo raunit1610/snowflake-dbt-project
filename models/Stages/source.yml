@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: ipl_carrier_database
+    database: IPL_RAW_DATABASE
+    schema: CARRIER
+    tables:
+      - name: season
+        identifier: SEASONS_DETAIL
+      - name: batting
+        identifier: PLAYERS_BATTING_CAREER
+      - name: bowling
+        identifier: PLAYERS_BOWLING_CAREER

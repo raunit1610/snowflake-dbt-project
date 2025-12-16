@@ -33,7 +33,7 @@ models:
   SNOWFLAKE_DBT_IPL:
     # Config indicated by + and applies to all files under models/example/
     +materialized: view
-    STAGES:
+    Stages:
       +schema: "STAGES"
       +materialized: table
   elementary:
