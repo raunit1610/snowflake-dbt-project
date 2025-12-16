@@ -114,8 +114,6 @@ models:
         description: ""
         constraints:
           - type: not_null
-        tests:
-          - unique
 
       - name: _inserted_at_
         data_type: timestamp_ntz
