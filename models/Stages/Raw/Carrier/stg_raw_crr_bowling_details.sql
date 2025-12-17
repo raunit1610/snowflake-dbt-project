@@ -1,7 +1,7 @@
 {{
     config(
         materialized='table',
-        tags = ["raw","carrier","bowling","raw_carrier","inactive"]
+        tags = ["raw","carrier","bowling","raw_carrier"]
     )
 }}
 
