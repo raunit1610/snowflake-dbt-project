@@ -1,6 +1,6 @@
 selectors:
   - name: default_for_dev
-    default: "{{ target.name | as_bool }}"
+    default: "{{ target.name == 'dev' | as_bool }}"
     definition:
       method: tag
       value: "*"
