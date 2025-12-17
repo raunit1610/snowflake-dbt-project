@@ -1,8 +1,9 @@
 version: 2
 
 models:
+  #stg_raw_crr_seasons_details schema definition
   - name: stg_raw_crr_seasons_details
-    description: ""
+    description: "This Table Contains Entire IPL Season Based Records"
     constraints:
       - type: primary_key
         columns: COMPETITION_ID
@@ -119,4 +120,238 @@ models:
         data_type: timestamp_ntz
         description: ""
         constraints:
+          - type: not_null
+
+  #stg_raw_crr_batting_fielding_details schema definition
+  - name: stg_raw_crr_batting_fielding_details
+    description: "This Table Contains all Players Batting and Fielding Stats of entire Seasons"
+    constraints:
+      - type: primary_key
+        columns: PLAYER_ID
+    columns:
+      - name: PLAYER_ID
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+        
+      - name: PLAYER_NAME
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: YEAR_TYPE
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: TEAM_NAME
+        data_type: varchar
+        description: ""
+      
+      - name: MATCHES
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: INNINGS
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: RUNS
+        data_type: number
+        description: ""
+        
+      - name: BALLS
+        data_type: number
+        description: ""
+
+      - name: HIGHEST_SCORE
+        data_type: number
+        description: ""
+
+      - name: FIFTIES
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
+        
+      - name: HUNDREDS
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: SIXES
+        data_type: number
+        description: ""
+
+      - name: FOURS
+        data_type: number
+        description: ""
+
+      - name: STRIKE_RATE
+        data_type: number
+        description: ""
+
+      - name: BATTING_AVG
+        data_type: number
+        description: ""
+
+      - name: NOT_OUTS
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: STATS_TYPE
+        data_type: varchar
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: CATCHES
+        data_type: number
+        description: ""
+
+      - name: STUMPINGS
+        data_type: number
+        description: ""
+
+      - name: CLIENT_PLAYER_ID
+        data_type: number
+        description: ""
+
+      - name: FILE_NAME
+        data_type: varchar
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: SOURCE_LOAD_TIMESTAMP
+        data_type: timestamp_ntz
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: _inserted_at_
+        data_type: timestamp_ntz
+        description: ""
+        constraints: 
+          - type: not_null
+
+  #stg_raw_crr_bowling_details schema definition
+  - name: stg_raw_crr_bowling_details
+    description: "This Table Contains all Players Bowling Stats of entire Seasons"
+    constraints:
+      - type: primary_key
+        columns: PLAYER_ID
+    columns:
+      - name: PLAYER_ID
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+        
+      - name: PLAYER_NAME
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: YEAR_TYPE
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: TEAM_NAME
+        data_type: varchar
+        description: ""
+      
+      - name: MATCHES
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: INNINGS
+        data_type: number
+        description: ""
+
+      - name: OVERS_DELIVERED
+        data_type: number
+        description: ""
+        
+      - name: BALLS_DELIVERED
+        data_type: number
+        description: ""
+
+      - name: RUNS_CONCEEDED
+        data_type: number
+        description: ""
+
+      - name: WICKETS_TAKEN
+        data_type: number
+        description: ""
+        
+      - name: BEST_BOWLING_FIGURE
+        data_type: varchar
+        description: ""
+
+      - name: BOWLING_AVERAGE
+        data_type: number
+        description: ""
+
+      - name: BOWLER_ECONOMY
+        data_type: number
+        description: ""
+
+      - name: BOWLER_STRIKE_RATE
+        data_type: number
+        description: ""
+
+      - name: FOUR_WICKETS_HOUL
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: FIVE_WICKETS_HOUL
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: STATS_TYPE
+        data_type: varchar
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: FILE_NAME
+        data_type: varchar
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: SOURCE_LOAD_TIMESTAMP
+        data_type: timestamp_ntz
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: _inserted_at_
+        data_type: timestamp_ntz
+        description: ""
+        constraints: 
           - type: not_null
