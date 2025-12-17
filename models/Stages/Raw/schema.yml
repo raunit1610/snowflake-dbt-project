@@ -1,0 +1,238 @@
+version: 2
+
+models:
+  #stg_raw_seasons_details schema definition
+  - name: stg_raw_seasons_details
+    description: "This Table Contains Entire IPL Season Based Records"
+    constraints:
+      - type: primary_key
+        columns: COMPETITION_ID
+    columns:
+      - name: COMPETITION_ID
+        data_type: number
+        description: ""
+        tests:
+          - unique
+
+      - name: COMPETITION_NAME
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: SEASON_ID
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
+        tests:
+          - unique
+
+      - name: SEASON
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: SEASON_NAME
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+
+      - name: COMPETITION_TYPE
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: COMPETITION_FORMAT
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: TEAM_TYPE
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: IS_LIVES
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: IS_FIXTURES
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: IS_COMPLETED
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: IS_STANDINGS
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+  #stg_raw_playercarrier_stats schema definition
+  - name: stg_raw_playercarrier_stats
+    description: "This Table Contains all Players Carrier Stats of entire Seasons"
+    constraints:
+      - type: primary_key
+        columns: PLAYER_ID
+    columns:
+      - name: PLAYER_ID
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+        tests:
+          - unique
+        
+      - name: PLAYER_NAME
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: YEAR_TYPE
+        data_type: varchar
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: TEAM_NAME
+        data_type: varchar
+        description: ""
+      
+      - name: MATCHES
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: INNINGS
+        data_type: number
+        description: ""
+        constraints:
+          - type: not_null
+
+      - name: RUNS
+        data_type: number
+        description: ""
+        
+      - name: BALLS
+        data_type: number
+        description: ""
+
+      - name: HIGHEST_SCORE
+        data_type: number
+        description: ""
+
+      - name: FIFTIES
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
+        
+      - name: HUNDREDS
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: SIXES
+        data_type: number
+        description: ""
+
+      - name: FOURS
+        data_type: number
+        description: ""
+
+      - name: STRIKE_RATE
+        data_type: number
+        description: ""
+
+      - name: BATTING_AVG
+        data_type: number
+        description: ""
+
+      - name: NOT_OUTS
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: CATCHES
+        data_type: number
+        description: ""
+
+      - name: STUMPINGS
+        data_type: number
+        description: ""
+
+      - name: CLIENT_PLAYER_ID
+        data_type: number
+        description: ""
+
+      - name: PLAYER_TYPE
+        data_type: varchar
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: OVERS_DELIVERED
+        data_type: number
+        description: ""
+        
+      - name: BALLS_DELIVERED
+        data_type: number
+        description: ""
+
+      - name: RUNS_CONCEEDED
+        data_type: number
+        description: ""
+
+      - name: WICKETS_TAKEN
+        data_type: number
+        description: ""
+        
+      - name: BEST_BOWLING_FIGURE
+        data_type: varchar
+        description: ""
+
+      - name: BOWLING_AVERAGE
+        data_type: number
+        description: ""
+
+      - name: BOWLER_ECONOMY
+        data_type: number
+        description: ""
+
+      - name: BOWLER_STRIKE_RATE
+        data_type: number
+        description: ""
+
+      - name: FOUR_WICKETS_HOUL
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
+
+      - name: FIVE_WICKETS_HOUL
+        data_type: number
+        description: ""
+        constraints: 
+          - type: not_null
