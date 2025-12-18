@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  #stg_raw_seasons_details schema definition
-  - name: stg_raw_seasons_details
+  #stg_brz_seasons_details schema definition
+  - name: stg_brz_season_details
     description: "This Table Contains Entire IPL Season Based Records"
     constraints:
       - type: primary_key
@@ -87,7 +87,7 @@ models:
           - type: not_null
 
   #stg_raw_playercarrier_stats schema definition
-  - name: stg_raw_playercarrier_stats
+  - name: stg_brz_playercarrier_stats
     description: "This Table Contains all Players Carrier Stats of entire Seasons"
     constraints:
       - type: primary_key
@@ -132,10 +132,14 @@ models:
       - name: RUNS_MADE
         data_type: number
         description: ""
+        constraints:
+          - type: not_null
         
       - name: BALLS_TAKEN
         data_type: number
         description: ""
+        constraints:
+          - type: not_null
 
       - name: HIGHEST_SCORE
         data_type: number
@@ -156,18 +160,26 @@ models:
       - name: SIXES_HITTEN
         data_type: number
         description: ""
+        constraints:
+          - type: not_null
 
       - name: FOURS_HITTEN
         data_type: number
         description: ""
+        constraints:
+          - type: not_null
 
       - name: BATTING_STRIKE_RATE
         data_type: number
         description: ""
+        constraints:
+          - type: not_null
 
       - name: BATTING_AVG
         data_type: number
         description: ""
+        constraints:
+          - type: not_null
 
       - name: NOT_OUTS
         data_type: number
@@ -178,6 +190,8 @@ models:
       - name: CATCHES
         data_type: number
         description: ""
+        constraints:
+          - type: not_null
 
       - name: STUMPINGS
         data_type: number

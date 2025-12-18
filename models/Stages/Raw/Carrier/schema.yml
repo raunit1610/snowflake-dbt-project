@@ -165,11 +165,11 @@ models:
         constraints:
           - type: not_null
 
-      - name: RUNS
+      - name: RUNS_MADE
         data_type: number
         description: ""
         
-      - name: BALLS
+      - name: BALLS_TAKEN
         data_type: number
         description: ""
 
@@ -189,15 +189,15 @@ models:
         constraints: 
           - type: not_null
 
-      - name: SIXES
+      - name: SIXES_HITTEN
         data_type: number
         description: ""
 
-      - name: FOURS
+      - name: FOURS_HITTEN
         data_type: number
         description: ""
 
-      - name: STRIKE_RATE
+      - name: BATTING_STRIKE_RATE
         data_type: number
         description: ""
 
