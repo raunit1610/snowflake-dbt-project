@@ -15,7 +15,7 @@ with playerstats as(
         , GREATEST(COALESCE(a.INNINGS,0),COALESCE(b.INNINGS,0)) AS INNINGS
         , (CASE
             WHEN a.STUMPINGS IS NOT NULL AND a.STUMPINGS <> 0 THEN 'Wicket Keeper'
-            WHEN b.OVERS_DELIVERED = 0 THEN 'Batsman'
+            WHEN b.OVERS_DELIVERED = 0 AND a.STUMPINGS = 0 THEN 'Batsman'
             WHEN a.BALLS_TAKEN IS NULL THEN 'Bowler'
             ELSE 'Bowler or All-Rounder' 
           END)::VARCHAR AS PLAYER_TYPE
